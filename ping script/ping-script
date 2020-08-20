@@ -1,0 +1,22 @@
+#!/bin/bash
+clear
+echo "How long would you like this to run for? Enter Minutes: "
+
+read intNum
+
+echo "What would you like to ping? Enter IP or Website: "
+
+read pingAddress
+
+echo "This script will ping $pingAddress every 3 minutes for $intNum minutes."
+
+((time= $intNum * 60 / 180))
+
+for ((i = 0; i <= time; i++)) 
+do
+    ping $pingAddress
+    if ((i < time))
+    then
+    sleep 180
+    fi
+done
